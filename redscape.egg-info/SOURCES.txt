@@ -1,0 +1,16 @@
+setup.py
+redscape/__init__.py
+redscape/cli.py
+redscape.egg-info/PKG-INFO
+redscape.egg-info/SOURCES.txt
+redscape.egg-info/dependency_links.txt
+redscape.egg-info/entry_points.txt
+redscape.egg-info/requires.txt
+redscape.egg-info/top_level.txt
+redscape/commands/__init__.py
+redscape/commands/scrape.py
+redscape/core/__init__.py
+redscape/intel/__init__.py
+redscape/interface/__init__.py
+redscape/recon/__init__.py
+redscape/utils/__init__.py
