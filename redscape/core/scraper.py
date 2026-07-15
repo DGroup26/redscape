@@ -86,6 +86,17 @@ class PlaywrightScraper:
             
             await browser.close()
         
+        # Save metadata for UI
+        if results['evidence_dir']:
+            meta_path = Path(results['evidence_dir']) / "meta.json"
+            with open(meta_path, 'w') as f:
+                json.dump({
+                    'case_id': results['case_id'],
+                    'target': results['target'],
+                    'timestamp': results['timestamp'],
+                    'pages': len(results['pages'])
+                }, f, indent=2)
+        
         return results
     
     def _generate_case_id(self, url):

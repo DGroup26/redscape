@@ -13,8 +13,9 @@ def cli():
     pass
 
 # Load commands
-from redscape.commands import scrape
+from redscape.commands import scrape, web
 cli.add_command(scrape.scrape)
+cli.add_command(web.web)
 
 if __name__ == '__main__':
     cli()

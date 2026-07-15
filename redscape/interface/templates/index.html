@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redscape Archive</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Redscape Archive</h1>
+        <p class="tagline">Memento. Quiet record of people and places.</p>
+    </header>
+    
+    <main>
+        <section id="cases-list">
+            <h2>Cases</h2>
+            <div id="cases-container" class="cases-grid">
+                <p class="loading">Loading archive...</p>
+            </div>
+        </section>
+        
+        <section id="case-detail" class="hidden">
+            <button id="back-btn" class="btn-back">← Back to cases</button>
+            <h2 id="case-title">Case Details</h2>
+            <div id="case-info"></div>
+            <div id="screenshots" class="screenshots-grid"></div>
+        </section>
+    </main>
+    
+    <!-- Modal for full-size screenshot -->
+    <div id="screenshot-modal" class="modal">
+        <button class="modal-close" onclick="closeModal()">Close [X]</button>
+        <img id="modal-image" src="" alt="Full size screenshot">
+    </div>
+    
+    <footer>
+        <p>Redscape v1.0.0</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

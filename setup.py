@@ -9,8 +9,10 @@ setup(
         'playwright>=1.40',  
         'beautifulsoup4>=4.12',  
         'requests>=2.31',  
+        'flask>=2.3',
         'rich>=13.0',  
         'pyyaml>=6.0',  
+        'flask>=2.3',  
     ],  
     entry_points={  
         'console_scripts': [  
@@ -20,5 +22,5 @@ setup(
     python_requires='>=3.9',  
     author="redreplica",  
     description="Redscape",  
-    url="https://github.com/redreplica/redscape",  
+    url="https://github.com/DGroup26/redscape",  
 )  
