@@ -9,7 +9,7 @@ REDSCAPE_DIR.mkdir(exist_ok=True)
 @click.group()
 @click.version_option(version="1.0.0")
 def cli():
-    """Redscape - Full Spectrum OSINT Platform"""
+    """Redscape"""
     pass
 
 # Load commands

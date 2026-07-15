@@ -19,6 +19,6 @@ setup(
     },  
     python_requires='>=3.9',  
     author="redreplica",  
-    description="Full Spectrum OSINT Platform",  
+    description="Redscape",  
     url="https://github.com/redreplica/redscape",  
 )  
