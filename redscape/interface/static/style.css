@@ -227,3 +227,191 @@ footer {
 .modal-close:hover {
     border-color: var(--accent);
 }
+/* Tab Navigation */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    background-color: var(--bg-secondary);
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Identity Generator */
+.description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.btn-generate {
+    background-color: var(--accent);
+    color: var(--text-primary);
+    border: none;
+    padding: 1rem 2rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.btn-generate:hover {
+    background-color: #a00000;
+}
+
+#identity-loading {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.identity-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    max-width: 800px;
+}
+
+.identity-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.identity-info {
+    flex: 1;
+}
+
+.identity-info h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.id-title {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.id-contact, .id-location {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0.3rem 0;
+}
+
+.identity-photo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+}
+
+.identity-sections {
+    margin-top: 1.5rem;
+}
+
+.id-section {
+    margin-bottom: 1.5rem;
+}
+
+.id-section h4 {
+    font-family: var(--font-serif);
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.id-section p, .id-section li {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.skills-list {
+    columns: 2;
+    list-style: square;
+    padding-left: 1.5rem;
+}
+
+.skills-list li {
+    margin-bottom: 0.3rem;
+}
+
+.work-item {
+    margin-bottom: 1rem;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+}
+
+.work-title {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.work-period {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.work-company {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+.identity-actions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.btn-download {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background-color: var(--accent);
+    color: var(--text-primary);
+}

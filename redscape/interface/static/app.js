@@ -104,4 +104,111 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeModal();
     }
+    // Tab switching
+function showTab(tabName) {
+    // Hide all tabs
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    
+    // Show selected tab
+    document.getElementById(tabName + '-tab').classList.add('active');
+    event.target.classList.add('active');
+    
+    // Load cases if switching to cases tab
+    if (tabName === 'cases') {
+        loadCases();
+    }
+}
+
+// Identity generation
+let currentIdentity = null;
+
+async function generateIdentity() {
+    const btn = document.getElementById('generate-btn');
+    const loading = document.getElementById('identity-loading');
+    const result = document.getElementById('identity-result');
+    
+    btn.disabled = true;
+    loading.classList.remove('hidden');
+    result.classList.add('hidden');
+    
+    try {
+        const response = await fetch('/api/identity/generate');
+        const data = await response.json();
+        
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        
+        currentIdentity = data;
+        
+        // Populate the card
+        document.getElementById('id-name').textContent = data.full_name;
+        document.getElementById('id-occupation').textContent = data.occupation;
+        document.getElementById('id-contact').textContent = `✉ ${data.email} | ☎ ${data.phone}`;
+        document.getElementById('id-location').textContent = `⚲ ${data.city} | DOB: ${data.dob}`;
+        
+        document.getElementById('id-photo').src = `data:image/jpeg;base64,${data.image_b64}`;
+        
+        const edu = data.education;
+        document.getElementById('id-education').textContent = `${edu.level} — ${edu.university} (${edu.grad_year})`;
+        
+        const skillsList = document.getElementById('id-skills');
+        skillsList.innerHTML = data.skills.map(s => `<li>${s}</li>`).join('');
+        
+        const workDiv = document.getElementById('id-work');
+        workDiv.innerHTML = data.work_history.map(job => `
+            <div class="work-item">
+                <div class="work-header">
+                    <span class="work-title">${job.title}</span>
+                    <span class="work-period">${job.period}</span>
+                </div>
+                <div class="work-company">${job.company}</div>
+            </div>
+        `).join('');
+        
+        loading.classList.add('hidden');
+        result.classList.remove('hidden');
+        
+    } catch (error) {
+        console.error('Failed to generate identity:', error);
+        alert('Failed to generate identity: ' + error.message);
+        loading.classList.add('hidden');
+    } finally {
+        btn.disabled = false;
+    }
+}
+
+async function downloadPDF() {
+    if (!currentIdentity) {
+        alert('Generate an identity first');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/identity/pdf', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(currentIdentity)
+        });
+        
+        if (!response.ok) {
+            throw new Error('PDF generation failed');
+        }
+        
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `CV_${currentIdentity.full_name.replace(' ', '_')}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+        
+    } catch (error) {
+        console.error('Failed to download PDF:', error);
+        alert('Failed to download PDF: ' + error.message);
+    }
+}
 });

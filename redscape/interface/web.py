@@ -7,6 +7,10 @@ from datetime import datetime
 app = Flask(__name__)
 DATA_DIR = Path.home() / ".redscape" / "data"
 
+# Register identity blueprint
+from redscape.interface.identity import identity_bp
+app.register_blueprint(identity_bp)
+
 @app.route('/')
 def index():
     """Main archive view"""
@@ -64,10 +68,10 @@ def serve_screenshot(case_id, filename):
     case_dir = DATA_DIR / "screenshots" / case_id
     return send_from_directory(case_dir, filename)
 
-def start_interface(host='127.0.0.1', port=5000,    debug=False):  
-    """Start the archive interface"""  
-    print(f"[+] Redscape Archive starting at http://{host}:{port}")  
-    app.run(host=host, port=port, debug=debug)  
-  
-if __name__ == '__main__':  
-    start_interface(debug=True)  
+def start_interface(host='127.0.0.1', port=5000, debug=False):
+    """Start the archive interface"""
+    print(f"[+] Redscape Archive starting at http://{host}:{port}")
+    app.run(host=host, port=port, debug=debug)
+
+if __name__ == '__main__':
+    start_interface(debug=True)

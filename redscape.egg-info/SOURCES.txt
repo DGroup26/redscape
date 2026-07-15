@@ -14,6 +14,7 @@ redscape/core/__init__.py
 redscape/core/scraper.py
 redscape/intel/__init__.py
 redscape/interface/__init__.py
+redscape/interface/identity.py
 redscape/interface/web.py
 redscape/recon/__init__.py
 redscape/utils/__init__.py

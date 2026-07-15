@@ -9,10 +9,11 @@ Requires-Dist: click>=8.0
 Requires-Dist: playwright>=1.40
 Requires-Dist: beautifulsoup4>=4.12
 Requires-Dist: requests>=2.31
-Requires-Dist: flask>=2.3
 Requires-Dist: rich>=13.0
 Requires-Dist: pyyaml>=6.0
 Requires-Dist: flask>=2.3
+Requires-Dist: weasyprint>=60.0
+Requires-Dist: pillow>=10.0
 Dynamic: author
 Dynamic: home-page
 Dynamic: requires-dist

@@ -12,19 +12,78 @@
         <p class="tagline">Memento. Quiet record of people and places.</p>
     </header>
     
+    <nav class="tabs">
+        <button class="tab-btn active" onclick="showTab('cases')">Cases</button>
+        <button class="tab-btn" onclick="showTab('identity')">New Identity</button>
+    </nav>
+    
     <main>
-        <section id="cases-list">
-            <h2>Cases</h2>
-            <div id="cases-container" class="cases-grid">
-                <p class="loading">Loading archive...</p>
-            </div>
+        <!-- Cases Tab -->
+        <section id="cases-tab" class="tab-content active">
+            <section id="cases-list">
+                <h2>Cases</h2>
+                <div id="cases-container" class="cases-grid">
+                    <p class="loading">Loading archive...</p>
+                </div>
+            </section>
+            
+            <section id="case-detail" class="hidden">
+                <button id="back-btn" class="btn-back">← Back to cases</button>
+                <h2 id="case-title">Case Details</h2>
+                <div id="case-info"></div>
+                <div id="screenshots" class="screenshots-grid"></div>
+            </section>
         </section>
         
-        <section id="case-detail" class="hidden">
-            <button id="back-btn" class="btn-back">← Back to cases</button>
-            <h2 id="case-title">Case Details</h2>
-            <div id="case-info"></div>
-            <div id="screenshots" class="screenshots-grid"></div>
+        <!-- New Identity Tab -->
+        <section id="identity-tab" class="tab-content">
+            <h2>New Identity</h2>
+            <p class="description">Generate a synthetic persona with AI-generated face. Refresh for a new identity.</p>
+            
+            <button id="generate-btn" class="btn-generate" onclick="generateIdentity()">
+                Generate New Identity
+            </button>
+            
+            <div id="identity-loading" class="hidden">
+                <p>Generating persona...</p>
+            </div>
+            
+            <div id="identity-result" class="hidden">
+                <div class="identity-card">
+                    <div class="identity-header">
+                        <div class="identity-info">
+                            <h3 id="id-name">Name</h3>
+                            <p id="id-occupation" class="id-title">Occupation</p>
+                            <p id="id-contact" class="id-contact">Contact info</p>
+<p id="id-location" class="id-location">Location</p>
+                        </div>
+                        <div class="identity-photo">
+                            <img id="id-photo" src="" alt="Generated face">
+                        </div>
+                    </div>
+                    
+                    <div class="identity-sections">
+                        <div class="id-section">
+                            <h4>Education</h4>
+                            <p id="id-education">Education details</p>
+                        </div>
+                        
+                        <div class="id-section">
+                            <h4>Skills</h4>
+                            <ul id="id-skills" class="skills-list"></ul>
+                        </div>
+                        
+                        <div class="id-section">
+                            <h4>Experience</h4>
+                            <div id="id-work"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="identity-actions">
+                        <button class="btn-download" onclick="downloadPDF()">Download PDF</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     
