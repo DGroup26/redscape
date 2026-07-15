@@ -10,6 +10,7 @@ redscape.egg-info/top_level.txt
 redscape/commands/__init__.py
 redscape/commands/scrape.py
 redscape/core/__init__.py
+redscape/core/scraper.py
 redscape/intel/__init__.py
 redscape/interface/__init__.py
 redscape/recon/__init__.py
